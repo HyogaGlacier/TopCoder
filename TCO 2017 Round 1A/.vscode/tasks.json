@@ -1,0 +1,12 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "cppbuild",
+			"type": "shell",
+			"command": "if [ ! -f ${fileDirname}/.~${fileBasenameNoExtension} ] || [ ! \"$(diff ${fileDirname}/.~${fileBasenameNoExtension} ${file})\" = \"\" ]; then cp ${file} ${fileDirname}/.~${fileBasenameNoExtension}; g++ -std=c++14 -Wall -O2 -o ${fileDirname}/${fileBasenameNoExtension}.out ${file}; fi"
+		}
+	]
+}
