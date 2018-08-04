@@ -23,17 +23,20 @@ typedef complex<ld> compd;
 #define gcd(a, b) __gcd(a, b)
 
 ${<if Problem.Description.Modulo}
-  static const ll MOD = ${Problem.Description.Modulo};
+static const ll MOD = ${Problem.Description.Modulo};
 ${<end}
 
-struct ${ClassName} {
-${<foreach Method.Params p}
-  ${p.Type} ${p.Name};
-${<end}
-  ${Method.ReturnType} ${Method.Name}(${foreach Method.Params p , }${p.Type} _${p.Name}${end}) {
-    ${foreach Method.Params p , }${p.Name} = _${p.Name}${end};
-    return ${Method.ReturnType;zeroval};
-  }
+struct ${ClassName}
+{
+	${<foreach Method.Params p}
+	${p.Type} ${p.Name};
+	${< end}
+	${Method.ReturnType} ${Method.Name}(${foreach Method.Params p , } ${p.Type} _${p.Name} ${end})
+	{
+		${foreach Method.Params p , }${p.Name} = _${p.Name}${end};
+		
+		return ${Method.ReturnType;zeroval};
+	}
 };
 
 ${CutBegin}
